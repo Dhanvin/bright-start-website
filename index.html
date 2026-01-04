@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPlay Kits - Thoughtfully Designed Learning Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1a1a1a;
+            background: #fafafa;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+            padding: 1.5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #666;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: none;
+            padding-top: 80px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hero {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem 3rem;
+        }
+
+        .credentials {
+            display: grid;
+            gap: 2rem;
+            margin: 1rem 0 3rem;
+        }
+
+        .credential-item {
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .credential-item h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .credential-item p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #1a1a1a;
+            border: 1px solid #e0e0e0;
+        }
+
+        .btn-secondary:hover {
+            border-color: #1a1a1a;
+            transform: translateY(-2px);
+        }
+
+        .kit-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            position: relative;
+        }
+
+        .kit-section:nth-child(even) {
+            background: white;
+        }
+
+        .kit-content {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .kit-image {
+            width: 100%;
+            height: 400px;
+            background: #e5e5e5;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1.5rem;
+            font-weight: 300;
+            overflow: hidden;
+        }
+
+        .kit-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .toy-section .kit-image {
+            height: 300px;
+            background: #e5e5e5;
+        }
+
+        .kit-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+
+            .kit-image {
+                height: 300px;
+            }
+
+            .toy-section .kit-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showPage('about')">Dr. Pragna Mehta</a></li>
+            <li><a href="#" onclick="showPage('sensory-kit')">Sensory Explorer Kit</a></li>
+        </ul>
+    </nav>
+
+    <div id="about" class="page active">
+        <div class="hero">
+            <div class="profile-image">Profile Photo</div>
+            <h1>Dr. Pragna Mehta</h1>
+            <p class="subtitle">Child Development Specialist & Educational Designer</p>
+
+            <div class="cta-buttons">
+                <a href="https://calendly.com" target="_blank" class="btn btn-primary">Book 30-Min Consultation</a>
+                <a href="https://youtube.com" target="_blank" class="btn btn-secondary">Watch on YouTube</a>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="credentials">
+                <div class="credential-item">
+                    <h3>Education & Credentials</h3>
+                    <p>Ph.D. in Developmental Psychology from Stanford University • 15+ years researching early childhood cognitive development • Certified Montessori educator • Published author of over 40 peer-reviewed studies on play-based learning</p>
+                </div>
+
+                <div class="credential-item">
+                    <h3>Design Philosophy</h3>
+                    <p>Every child learns differently, and play is the most powerful tool for development. My kits are designed to engage multiple learning styles simultaneously—visual, tactile, auditory, and kinesthetic—while respecting each child's natural pace and curiosity. I believe in open-ended play that invites exploration rather than dictates outcomes.</p>
+                </div>
+
+                <div class="credential-item">
+                    <h3>Approach</h3>
+                    <p>Each toy is meticulously researched and tested with children across various developmental stages. I focus on creating tools that support critical periods of brain development while remaining engaging and joyful. My designs incorporate principles from Montessori, Reggio Emilia, and contemporary neuroscience research.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sensory-kit" class="page">
+        <section class="kit-section">
+            <div class="kit-content">
+                <h2>Sensory Explorer Kit</h2>
+                <div class="kit-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect fill='%23FFF4E6' width='800' height='400'/%3E%3Ccircle cx='200' cy='200' r='80' fill='%23FFB84D' opacity='0.3'/%3E%3Ccircle cx='400' cy='200' r='80' fill='%23FF6B9D' opacity='0.3'/%3E%3Ccircle cx='600' cy='200' r='80' fill='%2366D9EF' opacity='0.3'/%3E%3Ctext x='400' y='220' font-family='Arial' font-size='24' fill='%23666' text-anchor='middle'%3EComplete Kit Collection%3C/text%3E%3C/svg%3E" alt="Sensory Explorer Kit">
+                </div>
+                <p class="kit-description">
+                    The Sensory Explorer Kit is designed for children ages 2-5, focusing on developing fine motor skills, sensory integration, and early problem-solving abilities. Each component works independently and together to create a rich, multi-sensory learning environment that adapts to your child's developmental stage. Research shows that sensory play is crucial during these formative years, helping children build neural connections that support everything from emotional regulation to spatial awareness. The kit includes carefully selected materials that are safe, durable, and designed to withstand years of exploration. Every element has been tested with hundreds of children across diverse backgrounds to ensure it engages curiosity while supporting key developmental milestones. Parents and educators can use these tools in structured activities or allow children to explore freely, following their natural interests and learning rhythms.
+                </p>
+            </div>
+        </section>
+
+        <section class="kit-section toy-section">
+            <div class="kit-content">
+                <h2>Texture Discovery Panels</h2>
+                <div class="kit-image">
+                    <img src="image.jpg" alt="Texture Discovery Panels" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 300%22%3E%3Crect fill=%22%23FFF4E6%22 width=%22800%22 height=%22300%22/%3E%3Crect x=%2250%22 y=%2250%22 width=%22120%22 height=%22200%22 fill=%22%23A8E6CF%22 rx=%228%22/%3E%3Crect x=%22190%22 y=%2250%22 width=%22120%22 height=%22200%22 fill=%22%23FFD3B6%22 rx=%228%22/%3E%3Crect x=%22330%22 y=%2250%22 width=%22120%22 height=%22200%22 fill=%22%23FFAAA5%22 rx=%228%22/%3E%3Crect x=%22470%22 y=%2250%22 width=%22120%22 height=%22200%22 fill=%22%23FF8B94%22 rx=%228%22/%3E%3Crect x=%22610%22 y=%2250%22 width=%22120%22 height=%22200%22 fill=%22%23C7CEEA%22 rx=%228%22/%3E%3C/svg%3E'">
+                </div>
+                <p class="kit-description">
+                    Six wooden panels featuring different textures—smooth bamboo, ribbed wood, soft felt, bumpy silicone, woven fabric, and natural cork. These panels help children develop tactile discrimination, a crucial precursor to fine motor control and sensory processing. Encourages vocabulary development as children learn to describe what they feel. Each panel measures 8x8 inches and is finished with non-toxic, child-safe materials. The variety of textures stimulates the sensory receptors in children's hands, building the neural pathways necessary for tasks like writing, button fastening, and other fine motor activities. Research in occupational therapy shows that tactile exploration is fundamental to body awareness and spatial understanding. Children naturally want to touch everything—these panels channel that impulse into meaningful learning. The panels can be used for matching games, sensory walks, or simply as calming tools when children need to self-regulate. Many parents report that children return to these panels again and again, discovering new ways to interact with them as they grow.
+                </p>
+            </div>
+        </section>
+
+        <section class="kit-section toy-section">
+            <div class="kit-content">
+                <h2>Color Sorting Stones</h2>
+                <div class="kit-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 300'%3E%3Crect fill='%23F5F5F5' width='800' height='300'/%3E%3Cellipse cx='150' cy='150' rx='50' ry='35' fill='%23FF6B6B'/%3E%3Cellipse cx='250' cy='150' rx='50' ry='35' fill='%234ECDC4'/%3E%3Cellipse cx='350' cy='150' rx='50' ry='35' fill='%23FFD93D'/%3E%3Cellipse cx='450' cy='150' rx='50' ry='35' fill='%236BCB77'/%3E%3Cellipse cx='550' cy='150' rx='50' ry='35' fill='%23A78BFA'/%3E%3Cellipse cx='650' cy='150' rx='50' ry='35' fill='%23FF8E53'/%3E%3C/svg%3E" alt="Color Sorting Stones">
+                </div>
+                <p class="kit-description">
+                    Twenty smooth, painted wooden stones in five colors with three different sizes. These open-ended pieces support color recognition, size comparison, sorting, pattern-making, and early math concepts. The ergonomic shape strengthens the pincer grasp essential for writing. Can be used for imaginative play as children grow. Each stone is carefully sanded and weighted to feel substantial in small hands, providing important proprioceptive feedback. The paint is water-based and meets all international safety standards. These stones are inspired by Reggio Emilia principles of loose parts play, where children create their own meaning and narratives. Younger children might simply sort by color, while older children create complex patterns, use them as pretend food, build towers, or incorporate them into storytelling. The mathematical thinking that emerges naturally from this play—grouping, categorizing, one-to-one correspondence, and even early multiplication concepts—forms the foundation for formal math learning later. Teachers have used these stones successfully in Montessori classrooms, forest schools, and traditional preschools alike.
+                </p>
+            </div>
+        </section>
+
+        <section class="kit-section toy-section">
+            <div class="kit-content">
+                <h2>Sound Matching Cylinders</h2>
+                <div class="kit-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 300'%3E%3Crect fill='%23FFF9E6' width='800' height='300'/%3E%3Crect x='100' y='80' width='80' height='140' fill='%23D4A574' rx='40'/%3E%3Crect x='220' y='80' width='80' height='140' fill='%23D4A574' rx='40'/%3E%3Crect x='340' y='80' width='80' height='140' fill='%23D4A574' rx='40'/%3E%3Crect x='460' y='80' width='80' height='140' fill='%23D4A574' rx='40'/%3E%3Crect x='580' y='80' width='80' height='140' fill='%23D4A574' rx='40'/%3E%3Ccircle cx='140' cy='120' r='8' fill='%23F5E6D3'/%3E%3Ccircle cx='260' cy='120' r='8' fill='%23F5E6D3'/%3E%3Ccircle cx='380' cy='120' r='8' fill='%23F5E6D3'/%3E%3Ccircle cx='500' cy='120' r='8' fill='%23F5E6D3'/%3E%3Ccircle cx='620' cy='120' r='8' fill='%23F5E6D3'/%3E%3C/svg%3E" alt="Sound Matching Cylinders">
+                </div>
+                <p class="kit-description">
+                    Six pairs of wooden cylinders, each pair containing materials that create distinct sounds when shaken—rice, bells, pebbles, sand, beads, and beans. Develops auditory discrimination and memory, pattern recognition, and the scientific concept of cause and effect. The matching activity builds concentration and problem-solving skills. Each cylinder is securely sealed and designed to withstand vigorous shaking by enthusiastic toddlers. The sound range spans from soft (sand) to loud (bells), helping children understand volume and acoustic properties intuitively. Auditory processing is closely linked to language development and reading readiness—children who can distinguish subtle sound differences often find phonics and early reading easier. This activity also introduces the scientific method: children shake, listen, form hypotheses about what's inside, test by shaking another cylinder, and confirm by finding matches. The self-correcting nature of the activity (children know when they've found a match) builds confidence and independence. Occupational therapists frequently recommend sound matching activities for children with sensory processing differences, as it helps integrate auditory input in a playful, non-threatening way.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth scroll reveal for kit sections
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.kit-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
