@@ -119,19 +119,24 @@
         }
 
         .profile-image {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+            background: none;
             margin: 0 auto 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 300;
         }
 
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
         .cta-buttons {
             display: flex;
             gap: 1rem;
@@ -254,9 +259,11 @@
 
     <div id="about" class="page active">
         <div class="hero">
-            <div class="profile-image">Profile Photo</div>
+            <div class="profile-image">
+                <img src="img/dr-pragna-mehta-edited.jpg" alt="Dr. Pragna Mehta">
+            </div>
             <h1>Dr. Pragna Mehta</h1>
-            <p class="subtitle">Child Development Specialist & Educational Designer</p>
+            <p class="subtitle">Renound child development specialist & educational designer with 30+ years of experience</p>
 
             <div class="cta-buttons">
                 <a href="https://calendly.com" target="_blank" class="btn btn-primary">Book 30-Min Consultation</a>
@@ -268,12 +275,21 @@
             <div class="credentials">
                 <div class="credential-item">
                     <h3>Education & Credentials</h3>
-                    <p>Ph.D. in Developmental Psychology from Stanford University • 15+ years researching early childhood cognitive development • Certified Montessori educator • Published author of over 40 peer-reviewed studies on play-based learning</p>
+                    <p> Ph.D. in Child Development Psychology • Over 30 years of experience play-based education <br>
+                        Founded Mumbai's first toy-library for play-based enrichment catering to over 1000 children <br>
+                        Founded of Bright Start Fellowship Pre-school School  <br>
+                        Founder-Principal of Bright Start Fellowship International School, a full Cambridge K–12 institution <br>
+                        Former counselling psychologist and lecturer at SNDT University and Nirmala Niketan College
                 </div>
 
                 <div class="credential-item">
                     <h3>Design Philosophy</h3>
-                    <p>Every child learns differently, and play is the most powerful tool for development. My kits are designed to engage multiple learning styles simultaneously—visual, tactile, auditory, and kinesthetic—while respecting each child's natural pace and curiosity. I believe in open-ended play that invites exploration rather than dictates outcomes.</p>
+                    <p>Every child learns differently, and play is the most powerful tool for development. Doctorate in Counselling Psychology, rank holder and recipient of scholarships throughout for education, Dr. Pragna Mehta is a founder Principal of Bright Start Fellowship International School, a complete Cambridge school upto K-12. Before starting her school,she was a practicing counselling psychologist and a lecturer in Psychology and Child Development at Nirmala Niketan College of HomeScience as well as the post graduate department of Psychology at SNDT University. Being an educationist and a child psychologist, she ensures that the school provides opportunities to enrich,empower and enlighten students with an equal emphasis on the development of head, heart and hand. She believes that schools providing international curriculum must, in particular, make sure that the students are given equal exposure to Indian culture and values. Let children’s self-esteem and self confidence hold high while moulding them as global citizens.
+                        <br>
+                        A passionate educationist and a child psychologist, Dr. Pragna Mehta has  that the school
+                        provides opportunities to enrich,empower and enlighten students
+                        My kits are designed to engage multiple learning styles simultaneously—visual, tactile, auditory, and kinesthetic—while respecting each child's natural pace and curiosity. I believe in open-ended play that invites exploration rather than dictates outcomes. <br>
+                    Children's self-esteem and self confidence hold high while moulding them as global citizens</p>
                 </div>
 
                 <div class="credential-item">
